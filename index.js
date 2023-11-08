@@ -97,8 +97,17 @@ const saveToEnv = (parameters) => {
   });
 }
 
+const writeToOutputs = (parameters) => {
+  Object.keys(parameters).forEach(key => {
+    core.setOutput(key, `${parameters[key]}`);
+  });
+}
+
 const saveOutput = (parameters, outputType) => {
   switch (outputType) {
+    case 'output':
+      writeToOutputs(parameters)
+      break;
     default:
       saveToEnv(parameters)
   }

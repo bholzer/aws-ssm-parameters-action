@@ -14,6 +14,8 @@ inputs:
     default: false
   env-prefix:
     default: ''
+  output-type:
+    default: 'env'
 runs:
   using: 'node16'
   main: 'dist/index.js'
